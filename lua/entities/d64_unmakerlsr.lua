@@ -50,9 +50,9 @@ function ENT:Touch(entity)
 end
 
 function ENT:Draw()
-    local DifAngle = math.atan2(self:GetPos().y - self.Owner:GetPos().y, self:GetPos().x - self.Owner:GetPos().x)
     local CurMaterial = Material(self:GetNWString("CurSprite")) 
-    render.DrawQuadEasy(self:GetPos(), Vector(0, 0, 1), CurMaterial:Width() * 5, CurMaterial:Height(), Color(255, 255, 255), (DifAngle * 57.2958) - 90)
+	render.SetMaterial(CurMaterial)
+	render.DrawBeam(self:GetPos(), self:GetPos() + self:GetVelocity(), 5, 0, 1, Color(255, 255, 255, 255))
 end
 
 scripted_ents.Register(ENT, "d64_unmakerlsr")
