@@ -33,7 +33,13 @@ function ENT:Think()
 end
 
 function ENT:PhysicsCollide()
-    self:Remove()
+	local ent = ents.Create("d64_unmakerspark")
+	ent:SetOwner(self.Owner)
+	ent:SetPos(self:GetPos())
+	ent:SetAngles(Angle(0, 0, 0))
+	ent:DrawShadow(false)
+	ent:Spawn()
+	self:Remove()
 end
 
 function ENT:Touch(entity)

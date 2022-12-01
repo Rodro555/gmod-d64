@@ -1,4 +1,4 @@
-SWEP.PrintName = "Unmaker"
+SWEP.PrintName = "Unmaker Level 1"
 SWEP.Category = "DOOM 64"
 SWEP.Spawnable = true
 SWEP.AdminSpawnable = true
