@@ -17,6 +17,7 @@ SWEP.Primary.Sound = Sound("DOOM64_Rocket")
 SWEP.Primary.MaxAmmo = 200
 SWEP.Primary.Ammo = "RPG_Round"
 SWEP.Primary.Delay = 0.6
+SWEP.BackVel = 100
 
 function SWEP:Shoot()
 	local ent = ents.Create("d64_rocketproj")
@@ -27,6 +28,7 @@ function SWEP:Shoot()
 	ent:GetPhysicsObject():SetVelocity(self.Owner:GetAimVector() * 2000)
 	self:TakePrimaryAmmo(self.TakeAmmo)
     self.Owner:ViewPunch(Angle(self.ViewPunch, 0, 0))
+	self.Owner:SetVelocity(-self.Owner:GetForward() * self.BackVel)
 end
 
 function SWEP:SetState(State)

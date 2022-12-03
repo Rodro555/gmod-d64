@@ -15,8 +15,8 @@ SWEP.Base = "d64_base"
 
 SWEP.Primary.MaxAmmo = 200
 SWEP.Primary.Ammo = "none"
-SWEP.Primary.MinDamage = 4
-SWEP.Primary.MaxDamage = 16
+SWEP.Primary.MinDamage = 3
+SWEP.Primary.MaxDamage = 24
 SWEP.Primary.Spread = 0
 SWEP.Primary.Delay = 0.1
 SWEP.BulletDistance = 80

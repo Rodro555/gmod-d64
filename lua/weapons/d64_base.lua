@@ -51,6 +51,7 @@ SWEP.BulletNum = 1
 SWEP.TakeAmmo = 1
 SWEP.BulletForce = 1
 SWEP.ViewPunch = -1
+SWEP.BackVel = 0
 
 function SWEP:Initialize()
 	self:SetState(1)
@@ -126,6 +127,7 @@ function SWEP:Shoot()
 	self.Owner:FireBullets(bullet)
 	self:TakePrimaryAmmo(self.TakeAmmo)
 	self.Owner:ViewPunch(Angle(self.ViewPunch, 0, 0))
+	self.Owner:SetVelocity(-self.Owner:GetForward() * self.BackVel)
 end
 
 function SWEP:DrawHUD()
@@ -134,6 +136,9 @@ function SWEP:DrawHUD()
 		self.BobSpeed = 0
 	else
 		self.BobSpeed = self.Owner:GetVelocity():Length2D() / self.Owner:GetRunSpeed() * ScrH() / 20
+		if self.Owner:GetVelocity():Length2D() >= self.Owner:GetRunSpeed() then
+			self.BobSpeed  = ScrH() / 20
+		end
 	end
 
 	local CurMaterial = Material(self:GetNWString("CurSprite"))

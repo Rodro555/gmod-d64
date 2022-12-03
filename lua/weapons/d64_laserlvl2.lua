@@ -5,6 +5,8 @@ SWEP.AdminSpawnable = true
 SWEP.AdminOnly = false
 
 SWEP.Base = "d64_laser"
+SWEP.Slot = 4
+SWEP.SlotPos = 5
 SWEP.Primary.Delay = 0.15
 
 local NextSoundTime = CurTime()

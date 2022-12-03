@@ -5,6 +5,8 @@ SWEP.AdminSpawnable = true
 SWEP.AdminOnly = false
 
 SWEP.Base = "d64_laserlvl2"
+SWEP.Slot = 4
+SWEP.SlotPos = 6
 
 function SWEP:Shoot()
     for i = -1, 1, 2 do 

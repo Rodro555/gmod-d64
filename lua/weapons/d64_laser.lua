@@ -7,8 +7,8 @@ SWEP.AdminOnly = false
 SWEP.WorldModel = "models/weapons/w_pistol.mdl"
 
 SWEP.Weight = 10
-SWEP.Slot = 1
-SWEP.SlotPos = 0
+SWEP.Slot = 4
+SWEP.SlotPos = 4
 
 SWEP.HoldType = "pistol"
 SWEP.Base = "d64_base"

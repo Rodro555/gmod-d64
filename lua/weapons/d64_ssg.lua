@@ -18,12 +18,13 @@ SWEP.Primary.MaxAmmo = 200
 SWEP.Primary.Ammo = "Buckshot"
 SWEP.Primary.MinDamage = 5
 SWEP.Primary.MaxDamage = 15
-SWEP.Primary.Spread = 0.15
+SWEP.Primary.Spread = 0.1
 SWEP.Primary.Delay = 1.5
 SWEP.BulletNum = 20
 SWEP.TakeAmmo = 2
-SWEP.BulletForce = 5
+SWEP.BulletForce = 2
 SWEP.ViewPunch = -3
+SWEP.BackVel = 100
 
 function SWEP:SetState(State)
     if State == 1 then

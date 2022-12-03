@@ -82,6 +82,9 @@ function SWEP:DrawHUD()
 		self.BobSpeed = 0
 	else
 		self.BobSpeed = self.Owner:GetVelocity():Length2D() / self.Owner:GetRunSpeed() * ScrH() / 20
+		if self.Owner:GetVelocity():Length2D() >= self.Owner:GetRunSpeed() then
+			self.BobSpeed  = ScrH() / 20
+		end
 	end
 
 	local CurMaterial = Material(self:GetNWString("CurSprite"))

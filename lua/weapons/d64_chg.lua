@@ -16,8 +16,8 @@ SWEP.Base = "d64_base"
 SWEP.Primary.Sound = Sound("DOOM64_Pistol")
 SWEP.Primary.MaxAmmo = 200
 SWEP.Primary.Ammo = "SMG1"
-SWEP.Primary.MinDamage = 8
-SWEP.Primary.MaxDamage = 24
+SWEP.Primary.MinDamage = 4
+SWEP.Primary.MaxDamage = 16
 SWEP.Primary.Spread = 0.02
 SWEP.Primary.Delay = 0.1
 SWEP.BulletNum = 1
@@ -46,11 +46,11 @@ function SWEP:SetState(State)
     if State == 1 then
         self:SetNWString("CurSprite", "v_spr/chg/CHGGA0.png")
         self:SetNWInt("NextState", 2)
-        self:SetNWFloat("NextTime", CurTime() + 0.05) 
+        self:SetNWFloat("NextTime", CurTime() + 0.08) 
     elseif State == 2 then
         self:SetNWString("CurSprite", "v_spr/chg/CHGGB0.png")
         self:SetNWInt("NextState", 1)
-        self:SetNWFloat("NextTime", CurTime() + 0.05) 
+        self:SetNWFloat("NextTime", CurTime() + 0.08) 
 		self:SetNWInt("OffsetX", math.random(-10, 10))
 		self:SetNWInt("OffsetY", math.random(-10, 10))	
     end
@@ -72,6 +72,9 @@ function SWEP:DrawHUD()
 	else
 		self:SetState(1)
 		self.BobSpeed = self.Owner:GetVelocity():Length2D() / self.Owner:GetRunSpeed() * ScrH() / 20
+		if self.Owner:GetVelocity():Length2D() >= self.Owner:GetRunSpeed() then
+			self.BobSpeed  = ScrH() / 20
+		end
 		CurOffsetX, CurOffsetY = 0, 0
 	end
 

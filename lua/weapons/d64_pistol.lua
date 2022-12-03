@@ -18,7 +18,7 @@ SWEP.Primary.MaxAmmo = 200
 SWEP.Primary.Ammo = "Pistol"
 SWEP.Primary.MinDamage = 4
 SWEP.Primary.MaxDamage = 16
-SWEP.Primary.Spread = 0.04
+SWEP.Primary.Spread = 0.03
 SWEP.Primary.Delay = 0.4
 SWEP.BulletDistance = 2048
 
