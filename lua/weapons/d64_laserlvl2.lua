@@ -8,7 +8,6 @@ SWEP.Base = "d64_laser"
 SWEP.Primary.Delay = 0.15
 
 local NextSoundTime = CurTime()
-
 function SWEP:PrimaryAttack()
 	if self:Ammo1() < 1 && self.Primary.Ammo != "none" then
 		return
@@ -22,32 +21,10 @@ function SWEP:PrimaryAttack()
     end
 end
 
-local PTick = 0
-function SWEP:Think()
-	local Delta = CurTime() - PTick
-	if (self.Bob >= 2 * math.pi) then
-		self.Bob = 0
-	end
-
-	self.Bob = math.Approach(self.Bob, 2 * math.pi, Delta * 3)
-
-	if self:GetNWBool("Deploy") then
-		self.WeaponPos = math.Approach(self.WeaponPos, 0, Delta * 3)
-	else
-		self.WeaponPos = math.Approach(self.WeaponPos, 1, Delta * 3)
-	end
-
-	if (CurTime() > self:GetNWFloat("SwitchTime") && self:GetNWFloat("SwitchTime") != 0 && SERVER) then
-		self.Owner:SelectWeapon(self.WeaponSwitch)
-	end
-
-	PTick = CurTime()
-end
-
 function SWEP:SetState(State)
     if State == 1 then
         self:SetNWString("CurSprite", "v_spr/lsr/LASRA0.png")
-        self:SetNWInt("NextState", 1)
+        self:SetNWInt("NextState", 2)
         self:SetNWFloat("NextTime", CurTime() + 0.075) 
     elseif State == 2 then
         self:SetNWString("CurSprite", "v_spr/lsr/LASRB0.png")
@@ -73,8 +50,8 @@ function SWEP:DrawHUD()
 	local CurMaterial = Material(self:GetNWString("CurSprite"))
 	surface.SetMaterial(CurMaterial)
 	surface.SetDrawColor(255, 255, 255, 255)
-	surface.DrawTexturedRect(ScrW() / 2 - CurMaterial:Width() * SpriteSize / 2 + CurOffsetX + math.cos(self.Bob) * self.BobSpeed, 
-		ScrH() - CurMaterial:Height() * 0.95 * SpriteSize + math.abs(math.sin(self.Bob)) * self.BobSpeed + CurOffsetY + (self.WeaponPos * ScrH() / 2), 
+	surface.DrawTexturedRect(ScrW() / 2 - CurMaterial:Width() * SpriteSize / 2 + math.cos(self.Bob) * self.BobSpeed, 
+		ScrH() - CurMaterial:Height() * 0.95 * SpriteSize + math.abs(math.sin(self.Bob)) * self.BobSpeed + (self.WeaponPos * ScrH() / 2), 
 		CurMaterial:Width() * SpriteSize, 
 		CurMaterial:Height() * SpriteSize)
 end

@@ -22,7 +22,7 @@ end
 function ENT:Think()
 	if SERVER then
 		if IsValid(self:GetPhysicsObject()) then
-			self:GetPhysicsObject():SetVelocity(self:GetForward() * 5000)
+			self:GetPhysicsObject():SetVelocity(self:GetVelocity() * 5000)
 		end
 		if self:WaterLevel() > 0 then
 			self:Remove()
