@@ -33,7 +33,7 @@ function SWEP:Initialize()
 end
 
 function SWEP:PrimaryAttack()
-	if self:Ammo1() < 1 && self.Primary.Ammo != "none" then
+	if (self:Ammo1() < 1 && self.Primary.Ammo != "none") or !self:GetNWBool("Deploy") then
 		return
 	end
 	self:Shoot()

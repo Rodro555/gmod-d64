@@ -11,7 +11,7 @@ SWEP.Primary.Delay = 0.15
 
 local NextSoundTime = CurTime()
 function SWEP:PrimaryAttack()
-	if self:Ammo1() < 1 && self.Primary.Ammo != "none" then
+	if (self:Ammo1() < 1 && self.Primary.Ammo != "none") or !self:GetNWBool("Deploy") then
 		return
 	end
 	self:Shoot()

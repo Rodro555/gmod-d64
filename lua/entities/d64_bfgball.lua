@@ -5,6 +5,7 @@ ENT.Spawnable = false
 ENT.Type = "anim"
 ENT.Base = "base_anim"
 
+local SpriteTimer = 0
 local IdleSprite = 0
 
 function ENT:Initialize()
@@ -19,20 +20,6 @@ function ENT:Initialize()
         self:SetTrigger(true)
         self:GetPhysicsObject():EnableGravity(false)
     end
-    if CLIENT then
-        timer.Create("IdleSprite", 0.05, 0, function()
-            if (self:GetSolid() != SOLID_NONE) then
-                IdleSprite = not IdleSprite
-                if (IdleSprite == false) then
-                    self:SetNWString("CurSprite", "ent/bfgball/BFS1A0.png")
-                else
-                    self:SetNWString("CurSprite", "ent/bfgball/BFS1B0.png")
-                end
-            else 
-                timer.Remove("IdleSprite")
-            end
-        end)
-    end
 end
 
 function ENT:Think()
@@ -40,11 +27,24 @@ function ENT:Think()
 		if IsValid(self:GetPhysicsObject()) then
 			self:GetPhysicsObject():SetVelocity(self:GetForward() * 1500)
 		end
+
 		if self:WaterLevel() > 0 then
 			self:Remove()
 		end
+    end
+ 
+    if CLIENT && CurTime() > SpriteTimer then
+        if (self:GetSolid() != SOLID_NONE) then
+            IdleSprite = not IdleSprite
+            if (IdleSprite) then
+                self:SetNWString("CurSprite", "ent/bfgball/BFS1B0.png")
+            else
+                self:SetNWString("CurSprite", "ent/bfgball/BFS1A0.png")
+            end
+            SpriteTimer = CurTime() + 0.05
+        end
 	end
-	self:NextThink(0.01)
+    self:NextThink(CurTime() + 0.01)
 	return true
 end
 
