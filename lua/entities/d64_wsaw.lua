@@ -13,4 +13,3 @@ ENT.Weapon = "d64_saw"
 ENT.Sprite = "ent/w_weapons/CSAWA0.png"
 ENT.AmmoType = "none"
 ENT.Ammo = 0
-ENT.IsWeapon = true

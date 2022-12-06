@@ -13,4 +13,3 @@ ENT.Weapon = "d64_rocket"
 ENT.Sprite = "ent/w_weapons/LAUNA0.png"
 ENT.AmmoType = "RPG_Round"
 ENT.Ammo = 5
-ENT.IsWeapon = true

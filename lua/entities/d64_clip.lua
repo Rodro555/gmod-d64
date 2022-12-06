@@ -11,5 +11,4 @@ ENT.Base = "d64_itembase"
 
 ENT.Sprite = "ent/items/CLIPA0.png"
 ENT.AmmoType = "Pistol"
-ENT.Ammo = 20
-ENT.IsWeapon = false
+ENT.Ammo = 5

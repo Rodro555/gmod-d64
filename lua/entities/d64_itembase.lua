@@ -13,7 +13,6 @@ ENT.Weapon = ""
 ENT.Sprite = ""
 ENT.AmmoType = ""
 ENT.Ammo = 0
-ENT.IsWeapon = true
 
 function ENT:Initialize()
 	if SERVER then
@@ -34,19 +33,14 @@ function ENT:Draw()
 end
 
 function ENT:Touch(entity)
-	if SERVER && entity:IsPlayer() then
-		if (self.IsWeapon) then
-			entity:GiveAmmo(self.Ammo, self.AmmoType, true)
-			if (entity:HasWeapon(self.Weapon)) then
-				self:EmitSound("DOOM64_ItemPickup")
-			else 
-				entity:Give(self.Weapon)
-				self:EmitSound("DOOM64_WeaponPickup")	
-			end
-			self:Remove()
-		else
+	if (SERVER && entity:IsPlayer()) then
+		if (entity:HasWeapon(self.Weapon) || self.Weapon == "") then
 			self:EmitSound("DOOM64_ItemPickup")
 			entity:GiveAmmo(self.Ammo, self.AmmoType, true)
+		else 
+			entity:Give(self.Weapon)
+			self:EmitSound("DOOM64_WeaponPickup")
 		end
+		self:Remove()
 	end
 end

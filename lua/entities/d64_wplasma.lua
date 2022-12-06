@@ -13,4 +13,3 @@ ENT.Weapon = "d64_plasma"
 ENT.Sprite = "ent/w_weapons/PLSMA0.png"
 ENT.AmmoType = "AR2AltFire"
 ENT.Ammo = 5
-ENT.IsWeapon = true
