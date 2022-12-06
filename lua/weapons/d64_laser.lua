@@ -15,7 +15,7 @@ SWEP.Base = "d64_base"
 
 SWEP.Primary.Sound = Sound("DOOM64_Laser")
 SWEP.Primary.MaxAmmo = 200
-SWEP.Primary.Ammo = "Pistol"
+SWEP.Primary.Ammo = "AR2AltFire"
 SWEP.Primary.MinDamage = 10
 SWEP.Primary.MaxDamage = 80
 SWEP.Primary.Spread = 0.04
@@ -26,7 +26,7 @@ SWEP.ViewPunch = 0
 local NextSoundTime = CurTime()
 
 function SWEP:PrimaryAttack()
-	if (self:Ammo1() < 1 && self.Primary.Ammo != "none") or !self:GetNWBool("Deploy") then
+	if (self:Ammo1() < self.TakeAmmo && self.Primary.Ammo != "none") or !self:GetNWBool("Deploy") then
 		return
 	end
 	self:Shoot()

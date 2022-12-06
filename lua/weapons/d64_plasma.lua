@@ -44,7 +44,7 @@ end
 
 
 function SWEP:PrimaryAttack()
-	if (self:Ammo1() < 1 && self.Primary.Ammo != "none") or !self:GetNWBool("Deploy") then
+	if (self:Ammo1() < self.TakeAmmo && self.Primary.Ammo != "none") or !self:GetNWBool("Deploy") then
 		return
 	end
 	self:Shoot()

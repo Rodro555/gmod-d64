@@ -15,7 +15,7 @@ SWEP.Base = "d64_base"
 
 SWEP.Primary.Sound = Sound("DOOM64_Pistol")
 SWEP.Primary.MaxAmmo = 200
-SWEP.Primary.Ammo = "SMG1"
+SWEP.Primary.Ammo = "Pistol"
 SWEP.Primary.MinDamage = 4
 SWEP.Primary.MaxDamage = 16
 SWEP.Primary.Spread = 0.02
@@ -33,7 +33,7 @@ function SWEP:Initialize()
 end
 
 function SWEP:PrimaryAttack()
-	if (self:Ammo1() < 1 && self.Primary.Ammo != "none") or !self:GetNWBool("Deploy") then
+	if (self:Ammo1() < self.TakeAmmo && self.Primary.Ammo != "none") or !self:GetNWBool("Deploy") then
 		return
 	end
 	self:Shoot()
@@ -61,7 +61,7 @@ local CurOffsetX, CurOffsetY = 0, 0
 function SWEP:DrawHUD()
 	local SpriteSize = ScrH() / 256
 
-    if ((input.IsMouseDown(MOUSE_LEFT) or self:GetNextPrimaryFire() - CurTime() > 0) && (self:Ammo1() > 1 or self.Primary.Ammo == "none")) then
+    if ((input.IsMouseDown(MOUSE_LEFT) or self:GetNextPrimaryFire() - CurTime() > 0) && (self:Ammo1() > self.TakeAmmo or self.Primary.Ammo == "none")) then
 		if (self:Ammo1() > 0) then
 			self.BobSpeed = 0
 			CurOffsetX = math.Approach(CurOffsetX, self:GetNWInt("OffsetX"), 2)

@@ -78,7 +78,7 @@ end
 
 function SWEP:DrawHUD()
 	local SpriteSize = ScrH() / 256
-	if ((input.IsMouseDown(MOUSE_LEFT) or self:GetNextPrimaryFire() - CurTime() > 0) && (self:Ammo1() > 1 or self.Primary.Ammo == "none")) then
+	if ((input.IsMouseDown(MOUSE_LEFT) or self:GetNextPrimaryFire() - CurTime() > 0) && (self:Ammo1() > self.TakeAmmo or self.Primary.Ammo == "none")) then
 		self.BobSpeed = 0
 	else
 		self.BobSpeed = self.Owner:GetVelocity():Length2D() / self.Owner:GetRunSpeed() * ScrH() / 20

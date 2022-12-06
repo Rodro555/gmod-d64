@@ -127,3 +127,19 @@ sound.Add(
 	volume = 0.2,
 	sound = "lsr/SFX_111.wav"
 })
+
+sound.Add(
+{
+	name = "DOOM64_ItemPickup",
+	channel = CHAN_WEAPON,
+	level = 100,
+	sound = "ent/SFX_110.wav"
+})
+
+sound.Add(
+{
+	name = "DOOM64_WeaponPickup",
+	channel = CHAN_WEAPON,
+	level = 100,
+	sound = "ent/SFX_122.wav"
+})
