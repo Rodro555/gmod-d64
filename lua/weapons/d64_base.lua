@@ -54,6 +54,7 @@ SWEP.ViewPunch = -1
 SWEP.BackVel = 0
 
 function SWEP:Initialize()
+	self:SetHoldType(self.HoldType)
 	self:SetState(1)
 	self:SetNWBool("Deploy", false)
 end

@@ -2,26 +2,16 @@ mount.cfg adding path: 'D:\Steam\steamapps\common\Portal 2\portal2'
 mount.cfg adding path: 'D:\Steam\steamapps\common\Counter-Strike Source\cstrike'
 mount.cfg adding path: 'D:\Steam\steamapps\common\half-life 2\ep2'
 mount.cfg adding path: 'D:\Steam\steamapps\common\half-life 2\episodic'
-qdir:    "d:\steam\steamapps\common\garrysmod\garrysmod\addons\doom64\modelsrc\w_bfg\"
+qdir:    "d:\steam\steamapps\common\garrysmod\garrysmod\addons\doom64\modelsrc\w_saw\"
 gamedir: "D:\Steam\steamapps\common\GarrysMod\garrysmod\"
-g_path:  "D:\Steam\steamapps\common\GarrysMod\garrysmod\addons\doom64\modelsrc\w_bfg\w_bfg.qc"
+g_path:  "D:\Steam\steamapps\common\GarrysMod\garrysmod\addons\doom64\modelsrc\w_saw\w_saw.qc"
 Building binary model files...
-Working on "w_bfg.qc"
-SMD MODEL w_bfg.smd
-SMD MODEL collision.smd
+Working on "w_saw.qc"
+SMD MODEL w_saw.smd
 SMD MODEL anims/idle.smd
-Processing LOD for material: bfuga0
-WARNING: Model has 2-dimensional geometry (less than 0.500 inches thick on any axis)!!!
-WARNING: Model has 2-dimensional geometry (less than 0.500 inches thick on any axis)!!!
-WARNING: Model has 2-dimensional geometry (less than 0.500 inches thick on any axis)!!!
-WARNING: Model has 2-dimensional geometry (less than 0.500 inches thick on any axis)!!!
-WARNING: Model has 2-dimensional geometry (less than 0.500 inches thick on any axis)!!!
-WARNING: Model has 2-dimensional geometry (less than 0.500 inches thick on any axis)!!!
-WARNING: Error with convex elements of collision.smd, building single convex!!!!
-Model has 1 convex sub-parts
-Collision model completed.
+Processing LOD for material: csawa0
 ---------------------
-writing D:\Steam\steamapps\common\GarrysMod\garrysmod\models/w_bfg.mdl:
+writing D:\Steam\steamapps\common\GarrysMod\garrysmod\models/w_saw.mdl:
 bones          896 bytes (1)
 animations     116 bytes (1 anims) (1 frames) [0:00]
 sequences      220 bytes (1 seq) 
@@ -32,16 +22,15 @@ textures        72 bytes
 keyvalues        0 bytes
 bone transforms        0 bytes
 bone flex driver       0 bytes
-Collision model volume 5130.22 in^3
 collision        0 bytes
-total         1664
+total         1652
 ---------------------
-writing D:\Steam\steamapps\common\GarrysMod\garrysmod\models/w_bfg.vvd:
+writing D:\Steam\steamapps\common\GarrysMod\garrysmod\models/w_saw.vvd:
 vertices       384 bytes (8 vertices)
 tangents       128 bytes (8 vertices)
 total          576 bytes
 ---------------------
-Generating optimized mesh "D:\Steam\steamapps\common\GarrysMod\garrysmod\models/w_bfg.sw.vtx":
+Generating optimized mesh "D:\Steam\steamapps\common\GarrysMod\garrysmod\models/w_saw.sw.vtx":
 body parts:         8 bytes
 models:            20 bytes
 model LODs:        12 bytes
@@ -53,7 +42,7 @@ indices:           24 bytes
 bone changes:       8 bytes
 everything:       229 bytes
 ---------------------
-Generating optimized mesh "D:\Steam\steamapps\common\GarrysMod\garrysmod\models/w_bfg.dx80.vtx":
+Generating optimized mesh "D:\Steam\steamapps\common\GarrysMod\garrysmod\models/w_saw.dx80.vtx":
 body parts:         8 bytes
 models:            20 bytes
 model LODs:        12 bytes
@@ -65,7 +54,7 @@ indices:           24 bytes
 bone changes:      16 bytes
 everything:       237 bytes
 ---------------------
-Generating optimized mesh "D:\Steam\steamapps\common\GarrysMod\garrysmod\models/w_bfg.dx90.vtx":
+Generating optimized mesh "D:\Steam\steamapps\common\GarrysMod\garrysmod\models/w_saw.dx90.vtx":
 body parts:         8 bytes
 models:            20 bytes
 model LODs:        12 bytes
@@ -77,7 +66,7 @@ indices:           24 bytes
 bone changes:      16 bytes
 everything:       237 bytes
 
-Completed "w_bfg.qc"
+Completed "w_saw.qc"
 
 
 

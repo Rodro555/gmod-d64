@@ -4,13 +4,13 @@ SWEP.Spawnable = true
 SWEP.AdminSpawnable = true
 SWEP.AdminOnly = false
 
-SWEP.WorldModel = "models/weapons/w_pistol.mdl"
+SWEP.WorldModel = "models/w_bfg.mdl"
 
 SWEP.Weight = 10
 SWEP.Slot = 4
 SWEP.SlotPos = 3
 
-SWEP.HoldType = "pistol"
+SWEP.HoldType = "smg"
 SWEP.Base = "d64_base"
 
 SWEP.Primary.Sound = Sound("DOOM64_BFGShoot")
