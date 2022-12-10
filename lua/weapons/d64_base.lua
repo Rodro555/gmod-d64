@@ -52,6 +52,7 @@ SWEP.TakeAmmo = 1
 SWEP.BulletForce = 1
 SWEP.ViewPunch = -1
 SWEP.BackVel = 0
+SWEP.RenderGroup = RENDERGROUP_BOTH
 
 function SWEP:Initialize()
 	self:SetHoldType(self.HoldType)
@@ -129,6 +130,7 @@ function SWEP:Shoot()
 	self:TakePrimaryAmmo(self.TakeAmmo)
 	self.Owner:ViewPunch(Angle(self.ViewPunch, 0, 0))
 	self.Owner:SetVelocity(-self.Owner:GetForward() * self.BackVel)
+	self.Owner:SetAnimation(PLAYER_ATTACK1)
 end
 
 function SWEP:DrawHUD()

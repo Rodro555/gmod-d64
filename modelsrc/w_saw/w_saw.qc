@@ -6,8 +6,13 @@ $surfaceprop "default"
 
 $origin 0.000000 0.000000 0.000000 -90.000000
 
-$scale 50.000000
+$scale 1.000000
 
-$body "w_saw" "w_saw.SMD"
+$body "saw" "saw.SMD"
+
+$collisionmodel "sawphys.SMD" {
+    $concave
+    $maxconvexpieces 10000
+}
 
 $sequence "idle" "anims/idle.SMD"

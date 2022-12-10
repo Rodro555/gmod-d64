@@ -1,0 +1,81 @@
+mount.cfg adding path: 'D:\Steam\steamapps\common\Portal 2\portal2'
+mount.cfg adding path: 'D:\Steam\steamapps\common\Counter-Strike Source\cstrike'
+mount.cfg adding path: 'D:\Steam\steamapps\common\half-life 2\ep2'
+mount.cfg adding path: 'D:\Steam\steamapps\common\half-life 2\episodic'
+qdir:    "d:\steam\steamapps\common\garrysmod\garrysmod\addons\doom64\modelsrc\w_chg\"
+gamedir: "D:\Steam\steamapps\common\GarrysMod\garrysmod\"
+g_path:  "D:\Steam\steamapps\common\GarrysMod\garrysmod\addons\doom64\modelsrc\w_chg\w_chg.qc"
+Building binary model files...
+Working on "w_chg.qc"
+SMD MODEL chg.smd
+SMD MODEL phys.smd
+SMD MODEL anims/idle.smd
+Processing LOD for material: mguna0
+WARNING: Model has 2-dimensional geometry (less than 0.500 inches thick on any axis)!!!
+WARNING: Model has 2-dimensional geometry (less than 0.500 inches thick on any axis)!!!
+WARNING: Model has 2-dimensional geometry (less than 0.500 inches thick on any axis)!!!
+WARNING: Model has 2-dimensional geometry (less than 0.500 inches thick on any axis)!!!
+WARNING: Model has 2-dimensional geometry (less than 0.500 inches thick on any axis)!!!
+WARNING: Model has 2-dimensional geometry (less than 0.500 inches thick on any axis)!!!
+WARNING: Error with convex elements of phys.smd, building single convex!!!!
+Collision model completed.
+---------------------
+writing D:\Steam\steamapps\common\GarrysMod\garrysmod\models/w_chg.mdl:
+bones          964 bytes (1)
+animations     112 bytes (1 anims) (1 frames) [0:00]
+sequences      220 bytes (1 seq) 
+ik/pose        164 bytes
+eyeballs         0 bytes (0 eyeballs)
+flexes           0 bytes (0 flexes)
+textures        72 bytes
+keyvalues        0 bytes
+bone transforms        0 bytes
+bone flex driver       0 bytes
+collision        0 bytes
+total         1728
+---------------------
+writing D:\Steam\steamapps\common\GarrysMod\garrysmod\models/w_chg.vvd:
+vertices       384 bytes (8 vertices)
+tangents       128 bytes (8 vertices)
+total          576 bytes
+---------------------
+Generating optimized mesh "D:\Steam\steamapps\common\GarrysMod\garrysmod\models/w_chg.sw.vtx":
+body parts:         8 bytes
+models:            20 bytes
+model LODs:        12 bytes
+meshes:             9 bytes
+strip groups:      25 bytes
+strips:            27 bytes
+verts:             72 bytes
+indices:           24 bytes
+bone changes:       8 bytes
+everything:       229 bytes
+---------------------
+Generating optimized mesh "D:\Steam\steamapps\common\GarrysMod\garrysmod\models/w_chg.dx80.vtx":
+body parts:         8 bytes
+models:            20 bytes
+model LODs:        12 bytes
+meshes:             9 bytes
+strip groups:      25 bytes
+strips:            27 bytes
+verts:             72 bytes
+indices:           24 bytes
+bone changes:      16 bytes
+everything:       237 bytes
+---------------------
+Generating optimized mesh "D:\Steam\steamapps\common\GarrysMod\garrysmod\models/w_chg.dx90.vtx":
+body parts:         8 bytes
+models:            20 bytes
+model LODs:        12 bytes
+meshes:             9 bytes
+strip groups:      25 bytes
+strips:            27 bytes
+verts:             72 bytes
+indices:           24 bytes
+bone changes:      16 bytes
+everything:       237 bytes
+
+Completed "w_chg.qc"
+
+
+

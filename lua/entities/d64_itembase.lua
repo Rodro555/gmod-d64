@@ -13,6 +13,7 @@ ENT.Weapon = ""
 ENT.Sprite = ""
 ENT.AmmoType = ""
 ENT.Ammo = 0
+ENT.RenderGroup = RENDERGROUP_BOTH -- this is necessary, fuck me man
 
 function ENT:Initialize()
 	if SERVER then
@@ -21,6 +22,7 @@ function ENT:Initialize()
 		self:SetSolid(SOLID_NONE)
 		self:PhysicsInit(SOLID_VPHYSICS)
 		self:SetCollisionGroup(COLLISION_GROUP_WORLD)
+		self:SetRenderMode(RENDERMODE_NORMAL)
 		self:DrawShadow(false)
 		self:SetTrigger(true)
 	end

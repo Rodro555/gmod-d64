@@ -10,7 +10,7 @@ SWEP.Weight = 10
 SWEP.Slot = 4
 SWEP.SlotPos = 3
 
-SWEP.HoldType = "smg"
+SWEP.HoldType = "shotgun"
 SWEP.Base = "d64_base"
 
 SWEP.Primary.Sound = Sound("DOOM64_BFGShoot")
@@ -30,6 +30,7 @@ function SWEP:Shoot()
         ent:GetPhysicsObject():SetVelocity(self.Owner:GetAimVector() * 1500)
         self:TakePrimaryAmmo(self.TakeAmmo)
         self.Owner:ViewPunch(Angle(self.ViewPunch, 0, 0))
+        self.Owner:SetAnimation(PLAYER_ATTACK1)
     end)
 end
 

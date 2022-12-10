@@ -4,7 +4,7 @@ SWEP.Spawnable = true
 SWEP.AdminSpawnable = true
 SWEP.AdminOnly = false
 
-SWEP.WorldModel = "models/weapons/w_pistol.mdl"
+SWEP.WorldModel = "models/w_pls.mdl"
 
 SWEP.Weight = 10
 SWEP.Slot = 2

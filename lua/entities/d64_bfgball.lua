@@ -4,6 +4,7 @@ ENT.Spawnable = false
 
 ENT.Type = "anim"
 ENT.Base = "base_anim"
+ENT.RenderGroup = RENDERGROUP_BOTH
 
 local SpriteTimer = 0
 local IdleSprite = 0

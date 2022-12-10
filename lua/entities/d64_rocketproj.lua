@@ -4,6 +4,7 @@ ENT.Spawnable = false
 
 ENT.Type = "anim"
 ENT.Base = "base_anim"
+ENT.RenderGroup = RENDERGROUP_BOTH
 
 function ENT:Initialize()
     self:SetNWString("CurSprite", "ent/rocket/MISLA5.png")

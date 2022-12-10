@@ -10,7 +10,7 @@ SWEP.Weight = 10
 SWEP.Slot = 0
 SWEP.SlotPos = 4
 
-SWEP.HoldType = "pistol"
+SWEP.HoldType = "shotgun"
 SWEP.Base = "d64_base"
 
 SWEP.Primary.MaxAmmo = 200

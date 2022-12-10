@@ -6,11 +6,11 @@ $surfaceprop "default"
 
 $origin 0.000000 0.000000 0.000000 -90.000000
 
-$scale 30.000000
+$scale 1.000000
 
-$body "w_bfg" "w_bfg.SMD"
+$body "bfg" "bfg.SMD"
 
-$collisionmodel "collision.SMD" {
+$collisionmodel "phys.SMD" {
     $concave
     $maxconvexpieces 10000
 }
