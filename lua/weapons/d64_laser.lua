@@ -10,7 +10,7 @@ SWEP.Weight = 10
 SWEP.Slot = 4
 SWEP.SlotPos = 4
 
-SWEP.HoldType = "pistol"
+SWEP.HoldType = "shotgun"
 SWEP.Base = "d64_base"
 
 SWEP.Primary.Sound = Sound("DOOM64_Laser")

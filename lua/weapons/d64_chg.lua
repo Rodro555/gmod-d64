@@ -10,7 +10,7 @@ SWEP.Weight = 10
 SWEP.Slot = 2
 SWEP.SlotPos = 2
 
-SWEP.HoldType = "smg"
+SWEP.HoldType = "shotgun"
 SWEP.Base = "d64_base"
 
 SWEP.Primary.Sound = Sound("DOOM64_Pistol")
@@ -27,6 +27,7 @@ SWEP.ViewPunch = -1
 
 function SWEP:Initialize()
 	self:SetState(1)
+	self:SetHoldType(self.HoldType)
 	self:SetNWBool("Deploy", false)
 	self:SetNWInt("OffsetX", 0)
 	self:SetNWInt("OffsetY", 0)

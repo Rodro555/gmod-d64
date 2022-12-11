@@ -124,7 +124,7 @@ sound.Add(
 	name = "DOOM64_Laser",
 	channel = CHAN_WEAPON,
 	level = 100,
-	volume = 0.2,
+	volume = 0.3,
 	sound = "lsr/SFX_111.wav"
 })
 

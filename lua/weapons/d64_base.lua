@@ -98,7 +98,7 @@ function SWEP:Think()
 		self.WeaponPos = math.Approach(self.WeaponPos, 1, Delta * 3)
 	end
 
-	if (CurTime() > self:GetNWFloat("SwitchTime") && self:GetNWFloat("SwitchTime") != 0 && SERVER) then
+	if (CurTime() > self:GetNWFloat("SwitchTime") && self:GetNWFloat("SwitchTime") != 0 && SERVER && IsValid(self.WeaponSwitch)) then
 		self.Owner:SelectWeapon(self.WeaponSwitch)
 	end
 

@@ -24,7 +24,6 @@ SWEP.ViewPunch = 0
 
 function SWEP:Deploy()
 	self:SetNWBool("Deploy", true)
-	self:EmitSound("DOOM64_SAW1")
 end
 
 function SWEP:PrimaryAttack()
@@ -44,12 +43,16 @@ function SWEP:SetState(State)
         self:SetNWString("CurSprite", "v_spr/saw/SAWGA0.png")
         self:SetNWInt("NextState", 2)
         self:SetNWFloat("NextTime", CurTime() + 0.2)
-		self:EmitSound("DOOM64_SAW2")
+        if (!IsFirstTimePredicted() && !self.Owner:InVehicle()) then
+            self:EmitSound("DOOM64_SAW2") 
+        end
     elseif State == 2 then
         self:SetNWString("CurSprite", "v_spr/saw/SAWGB0.png")
         self:SetNWInt("NextState", 1)
         self:SetNWFloat("NextTime", CurTime() + 0.2) 
-		self:EmitSound("DOOM64_SAW2")
+        if (!IsFirstTimePredicted() && !self.Owner:InVehicle()) then
+            self:EmitSound("DOOM64_SAW2") 
+        end
     elseif State == 3 then
         self:SetNWString("CurSprite", "v_spr/saw/SAWGC0.png")
         self:SetNWInt("NextState", 4)

@@ -29,6 +29,7 @@ function SWEP:Shoot()
 	self:TakePrimaryAmmo(self.TakeAmmo)
     self.Owner:ViewPunch(Angle(self.ViewPunch, 0, 0))
 	self.Owner:SetVelocity(-self.Owner:GetForward() * self.BackVel)
+    self.Owner:SetAnimation(PLAYER_ATTACK1)
 end
 
 function SWEP:SetState(State)

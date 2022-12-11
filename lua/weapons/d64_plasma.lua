@@ -10,7 +10,7 @@ SWEP.Weight = 10
 SWEP.Slot = 2
 SWEP.SlotPos = 3
 
-SWEP.HoldType = "pistol"
+SWEP.HoldType = "shotgun"
 SWEP.Base = "d64_base"
 
 SWEP.Primary.Sound = Sound("DOOM64_PlasmaShoot")
@@ -22,7 +22,9 @@ function SWEP:Deploy()
 	self:SetNWBool("Deploy", true)
     self:EmitSound("DOOM64_PlasmaIdle")
     timer.Create("SndMgr", 2, 0, function()
-        self:EmitSound("DOOM64_PlasmaIdle")
+        if (!self.Owner:InVehicle()) then
+            self:EmitSound("DOOM64_PlasmaIdle") 
+        end
     end)
 end
 
