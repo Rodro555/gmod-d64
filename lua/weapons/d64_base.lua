@@ -65,6 +65,9 @@ function SWEP:Deploy()
 end
 
 function SWEP:Holster(Weapon)
+	if (!IsValid(Weapon)) then
+		return false
+	end
 	self:SetNWBool("Deploy", false)
 	if (!self.ShouldSwitch) then
 		self.ShouldSwitch = true
