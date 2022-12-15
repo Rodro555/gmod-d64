@@ -12,4 +12,4 @@ ENT.Base = "d64_itembase"
 ENT.Weapon = "d64_laser"
 ENT.Sprite = "ent/w_weapons/LSRGA0.png"
 ENT.AmmoType = "AR2AltFire"
-ENT.Ammo = 5
+ENT.Ammo = 80

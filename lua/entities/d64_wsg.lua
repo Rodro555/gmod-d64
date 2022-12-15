@@ -12,4 +12,4 @@ ENT.Base = "d64_itembase"
 ENT.Weapon = "d64_sg"
 ENT.Sprite = "ent/w_weapons/SHOTA0.png"
 ENT.AmmoType = "Buckshot"
-ENT.Ammo = 5
+ENT.Ammo = 4

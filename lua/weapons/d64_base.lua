@@ -33,6 +33,7 @@ SWEP.Primary.Delay = 0
 SWEP.BulletDistance = 2048
 
 SWEP.Secondary.ClipSize = -1
+SWEP.Primary.DefaultClip = 0
 SWEP.Secondary.DefaultClip = -1
 SWEP.Secondary.Automatic = true
 SWEP.Secondary.Ammo = "none"
@@ -53,6 +54,14 @@ SWEP.BulletForce = 1
 SWEP.ViewPunch = -1
 SWEP.BackVel = 0
 SWEP.RenderGroup = RENDERGROUP_BOTH
+
+SWEP.Icon = "nil"
+SWEP.WeaponName = "base"
+
+if CLIENT then
+	SWEP.WepSelectIcon = surface.GetTextureID(SWEP.Icon)
+	killicon.Add(SWEP.WeaponName, SWEP.Icon, Color(255, 255, 255, 255))
+end
 
 function SWEP:Initialize()
 	self:SetHoldType(self.HoldType)
@@ -137,6 +146,10 @@ function SWEP:Shoot()
 end
 
 function SWEP:DrawHUD()
+	if (self.Owner:InVehicle()) then
+		return
+	end
+
 	local SpriteSize = ScrH() / 256
 	if ((input.IsMouseDown(MOUSE_LEFT) or self:GetNextPrimaryFire() - CurTime() > 0) && (self:Ammo1() > self.TakeAmmo or self.Primary.Ammo == "none")) then
 		self.BobSpeed = 0

@@ -15,6 +15,7 @@ SWEP.Base = "d64_base"
 
 SWEP.Primary.Sound = Sound("DOOM64_Rocket")
 SWEP.Primary.MaxAmmo = 200
+SWEP.Primary.DefaultClip = 2
 SWEP.Primary.Ammo = "RPG_Round"
 SWEP.Primary.Delay = 0.6
 SWEP.BackVel = 100

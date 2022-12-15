@@ -12,4 +12,4 @@ ENT.Base = "d64_itembase"
 ENT.Weapon = "d64_chg"
 ENT.Sprite = "ent/w_weapons/MGUNA0.png"
 ENT.AmmoType = "Pistol"
-ENT.Ammo = 5
+ENT.Ammo = 70

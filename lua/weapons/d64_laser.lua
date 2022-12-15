@@ -15,6 +15,7 @@ SWEP.Base = "d64_base"
 
 SWEP.Primary.Sound = Sound("DOOM64_Laser")
 SWEP.Primary.MaxAmmo = 200
+SWEP.Primary.DefaultClip = 80
 SWEP.Primary.Ammo = "AR2AltFire"
 SWEP.Primary.MinDamage = 10
 SWEP.Primary.MaxDamage = 80

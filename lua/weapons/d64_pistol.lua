@@ -4,7 +4,7 @@ SWEP.Spawnable = true
 SWEP.AdminSpawnable = true
 SWEP.AdminOnly = false
 
-SWEP.WorldModel = "models/weapons/w_pistol.mdl"
+SWEP.WorldModel = "models/w_pistol.mdl"
 
 SWEP.Weight = 10
 SWEP.Slot = 1
@@ -15,12 +15,16 @@ SWEP.Base = "d64_base"
 
 SWEP.Primary.Sound = Sound("DOOM64_Pistol")
 SWEP.Primary.MaxAmmo = 200
+SWEP.Primary.DefaultClip = 50
 SWEP.Primary.Ammo = "Pistol"
 SWEP.Primary.MinDamage = 4
 SWEP.Primary.MaxDamage = 16
 SWEP.Primary.Spread = 0.03
 SWEP.Primary.Delay = 0.4
 SWEP.BulletDistance = 2048
+
+SWEP.Icon = "ent/w_weapons/PISTOL.png"
+SWEP.WeaponName = "d64_pistol"
 
 function SWEP:SetState(State)
     if State == 1 then

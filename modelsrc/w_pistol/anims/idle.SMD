@@ -1,0 +1,12 @@
+version 1
+nodes
+0 "Implicit" -1
+1 "ValveBiped.Bip01_R_Hand" -1
+end
+skeleton
+time 0
+0  0.000000 0.000000 0.000000  0.000000 0.000000 0.000000
+1  -1.226549 18.586401 -3.305974  -0.000000 3.141591 1.570796
+end
+triangles
+end

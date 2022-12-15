@@ -16,6 +16,7 @@ SWEP.Base = "d64_base"
 SWEP.Primary.Sound = Sound("DOOM64_PlasmaShoot")
 SWEP.Primary.MaxAmmo = 200
 SWEP.Primary.Ammo = "AR2AltFire"
+SWEP.Primary.DefaultClip = 40
 SWEP.Primary.Delay = 0.13
 
 function SWEP:Deploy()

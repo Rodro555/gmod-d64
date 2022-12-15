@@ -4,13 +4,13 @@ SWEP.Spawnable = true
 SWEP.AdminSpawnable = true
 SWEP.AdminOnly = false
 
-SWEP.WorldModel = "models/weapons/w_pistol.mdl"
+SWEP.WorldModel = ""
 
 SWEP.Weight = 10
 SWEP.Slot = 0
 SWEP.SlotPos = 3
 
-SWEP.HoldType = "pistol"
+SWEP.HoldType = "fist"
 SWEP.Base = "d64_base"
 
 SWEP.Primary.Sound = Sound("nil")
@@ -44,6 +44,7 @@ function SWEP:Shoot()
         end
     end
 	self.Owner:FireBullets(bullet)
+    self.Owner:SetAnimation(PLAYER_ATTACK1)
 	self:TakePrimaryAmmo(self.TakeAmmo)
 end
 
@@ -77,6 +78,10 @@ function SWEP:SetState(State)
 end
 
 function SWEP:DrawHUD()
+	if (self.Owner:InVehicle()) then
+		return
+	end
+
 	local SpriteSize = ScrH() / 256
 	if ((input.IsMouseDown(MOUSE_LEFT) or self:GetNextPrimaryFire() - CurTime() > 0) && (self:Ammo1() > self.TakeAmmo or self.Primary.Ammo == "none")) then
 		self.BobSpeed = 0

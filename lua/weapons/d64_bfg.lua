@@ -16,6 +16,7 @@ SWEP.Base = "d64_base"
 SWEP.Primary.Sound = Sound("DOOM64_BFGShoot")
 SWEP.Primary.MaxAmmo = 200
 SWEP.Primary.Ammo = "AR2AltFire"
+SWEP.Primary.DefaultClip = 120
 SWEP.Primary.Delay = 1.5
 SWEP.TakeAmmo = 40
 SWEP.ViewPunch = -5

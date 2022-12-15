@@ -16,6 +16,7 @@ SWEP.Base = "d64_base"
 SWEP.Primary.Sound = Sound("DOOM64_Pistol")
 SWEP.Primary.MaxAmmo = 200
 SWEP.Primary.Ammo = "Pistol"
+SWEP.Primary.DefaultClip = 70
 SWEP.Primary.MinDamage = 4
 SWEP.Primary.MaxDamage = 16
 SWEP.Primary.Spread = 0.02
@@ -60,6 +61,10 @@ end
 local CurOffsetX, CurOffsetY = 0, 0
 
 function SWEP:DrawHUD()
+	if (self.Owner:InVehicle()) then
+		return
+	end
+	
 	local SpriteSize = ScrH() / 256
 
     if ((input.IsMouseDown(MOUSE_LEFT) or self:GetNextPrimaryFire() - CurTime() > 0) && (self:Ammo1() > self.TakeAmmo or self.Primary.Ammo == "none")) then

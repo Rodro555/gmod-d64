@@ -16,6 +16,7 @@ SWEP.Base = "d64_base"
 SWEP.Primary.Sound = Sound("DOOM64_SSG1")
 SWEP.Primary.MaxAmmo = 200
 SWEP.Primary.Ammo = "Buckshot"
+SWEP.Primary.DefaultClip = 8
 SWEP.Primary.MinDamage = 5
 SWEP.Primary.MaxDamage = 15
 SWEP.Primary.Spread = 0.1
