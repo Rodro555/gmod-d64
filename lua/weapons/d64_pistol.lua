@@ -23,8 +23,10 @@ SWEP.Primary.Spread = 0.03
 SWEP.Primary.Delay = 0.4
 SWEP.BulletDistance = 2048
 
-SWEP.Icon = "ent/w_weapons/PISTOL.png"
-SWEP.WeaponName = "d64_pistol"
+if CLIENT then
+	SWEP.WepSelectIcon = surface.GetTextureID("ent/w_weapons/pisga0")
+	killicon.Add("d64_pistol", "ent/w_weapons/pisga0", Color(255, 255, 255, 255))
+end
 
 function SWEP:SetState(State)
     if State == 1 then

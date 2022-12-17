@@ -26,6 +26,11 @@ SWEP.TakeAmmo = 1
 SWEP.BulletForce = 5
 SWEP.ViewPunch = -1
 
+if CLIENT then
+	SWEP.WepSelectIcon = surface.GetTextureID("ent/w_weapons/mguna0")
+	killicon.Add("d64_chg", "ent/w_weapons/mguna0", Color(255, 255, 255, 255))
+end
+
 function SWEP:Initialize()
 	self:SetState(1)
 	self:SetHoldType(self.HoldType)

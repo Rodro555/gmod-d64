@@ -24,6 +24,11 @@ SWEP.Primary.Delay = 0.3
 SWEP.BulletDistance = 2048
 SWEP.ViewPunch = 0
 
+if CLIENT then
+	SWEP.WepSelectIcon = surface.GetTextureID("ent/w_weapons/lsrga0")
+	killicon.Add("d64_unmakerlsr", "ent/w_weapons/lsrga0", Color(255, 255, 255, 255))
+end
+
 local NextSoundTime = CurTime()
 
 function SWEP:PrimaryAttack()

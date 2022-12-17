@@ -1,6 +1,6 @@
 # gmod-d64
 
 TODO: 
-- Interaction with physics prop bug!
+- Weapon Selection icons
 
 NOTE: GMOD does not read material files from local addon folder!!!

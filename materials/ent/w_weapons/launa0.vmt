@@ -1,6 +1,7 @@
-"VertexLitGeneric"
+UnlitGeneric
 {
-	"$basetexture" "models/doom64/launa0"
-	"$translucent" 1
-	"$model" 1
+	$basetexture "ent/w_weapons/launa0"
+	$vertexalpha 1
+	$vertexcolor 1
+	$translucent 1
 }

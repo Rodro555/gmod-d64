@@ -25,6 +25,11 @@ SWEP.BulletNum = 7
 SWEP.BulletForce = 2
 SWEP.ViewPunch = -2
 
+if CLIENT then
+	SWEP.WepSelectIcon = surface.GetTextureID("ent/w_weapons/shota0")
+	killicon.Add("d64_sg", "ent/w_weapons/shota0", Color(255, 255, 255, 255))
+end
+
 function SWEP:SetState(State)
     if State == 1 then
         self:SetNWString("CurSprite", "v_spr/sg/SHT1A0.png")

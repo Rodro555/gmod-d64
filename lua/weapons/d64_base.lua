@@ -55,14 +55,6 @@ SWEP.ViewPunch = -1
 SWEP.BackVel = 0
 SWEP.RenderGroup = RENDERGROUP_BOTH
 
-SWEP.Icon = "nil"
-SWEP.WeaponName = "base"
-
-if CLIENT then
-	SWEP.WepSelectIcon = surface.GetTextureID(SWEP.Icon)
-	killicon.Add(SWEP.WeaponName, SWEP.Icon, Color(255, 255, 255, 255))
-end
-
 function SWEP:Initialize()
 	self:SetHoldType(self.HoldType)
 	self:SetState(1)

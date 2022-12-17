@@ -1,6 +1,6 @@
 UnlitGeneric
 {
-	$basetexture "ent/w_weapons/mguna0"
+	$basetexture "ent/w_weapons/pisga0"
 	$vertexalpha 1
 	$vertexcolor 1
 	$translucent 1

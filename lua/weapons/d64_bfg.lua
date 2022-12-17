@@ -21,6 +21,11 @@ SWEP.Primary.Delay = 1.5
 SWEP.TakeAmmo = 40
 SWEP.ViewPunch = -5
 
+if CLIENT then
+	SWEP.WepSelectIcon = surface.GetTextureID("ent/w_weapons/bfuga0")
+	killicon.Add("d64_bfg", "ent/w_weapons/bfuga0", Color(255, 255, 255, 255))
+end
+
 function SWEP:Shoot()
     timer.Simple(1, function()
         local ent = ents.Create("d64_bfgball")

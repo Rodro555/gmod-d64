@@ -20,6 +20,11 @@ SWEP.Primary.Ammo = "RPG_Round"
 SWEP.Primary.Delay = 0.6
 SWEP.BackVel = 100
 
+if CLIENT then
+	SWEP.WepSelectIcon = surface.GetTextureID("ent/w_weapons/launa0")
+	killicon.Add("d64_rocketproj", "ent/w_weapons/launa0", Color(255, 255, 255, 255))
+end
+
 function SWEP:Shoot()
 	local ent = ents.Create("d64_rocketproj")
 	ent:SetOwner(self.Owner)

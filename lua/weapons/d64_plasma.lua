@@ -19,6 +19,11 @@ SWEP.Primary.Ammo = "AR2AltFire"
 SWEP.Primary.DefaultClip = 40
 SWEP.Primary.Delay = 0.13
 
+if CLIENT then
+	SWEP.WepSelectIcon = surface.GetTextureID("ent/w_weapons/plsma0")
+	killicon.Add("d64_plasmaball", "ent/w_weapons/plsma0", Color(255, 255, 255, 255))
+end
+
 function SWEP:Deploy()
 	self:SetNWBool("Deploy", true)
     self:EmitSound("DOOM64_PlasmaIdle")

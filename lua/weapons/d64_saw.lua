@@ -22,6 +22,11 @@ SWEP.Primary.Delay = 0.1
 SWEP.BulletDistance = 80
 SWEP.ViewPunch = 0
 
+if CLIENT then
+	SWEP.WepSelectIcon = surface.GetTextureID("ent/w_weapons/csawa0")
+	killicon.Add("d64_saw", "ent/w_weapons/csawa0", Color(255, 255, 255, 255))
+end
+
 function SWEP:Deploy()
 	self:SetNWBool("Deploy", true)
 end

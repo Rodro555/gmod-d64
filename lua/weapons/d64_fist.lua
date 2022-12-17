@@ -22,6 +22,11 @@ SWEP.Primary.Delay = 0.5
 SWEP.BulletDistance = 80
 SWEP.ViewPunch = 0
 
+if CLIENT then
+	SWEP.WepSelectIcon = surface.GetTextureID("ent/w_weapons/fist")
+	killicon.Add("d64_pistol", "ent/w_weapons/fist", Color(255, 255, 255, 255))
+end
+
 function SWEP:Shoot()
     local bullet = {}
 	bullet.Src = self.Owner:GetShootPos()
