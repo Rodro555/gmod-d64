@@ -54,6 +54,7 @@ function SWEP:Shoot()
     ent:GetPhysicsObject():SetVelocity(self.Owner:GetAimVector() * 5000)
     self:TakePrimaryAmmo(self.TakeAmmo)
     self.Owner:ViewPunch(Angle(self.ViewPunch, 0, 0))
+    self.Owner:SetAnimation(PLAYER_ATTACK1)
 end
 
 

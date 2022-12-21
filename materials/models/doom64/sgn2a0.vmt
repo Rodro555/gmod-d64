@@ -1,0 +1,6 @@
+"VertexLitGeneric"
+{
+	"$basetexture" "models/doom64/sgn2a0"
+	"$translucent" 1
+	"$model" 1
+}

@@ -1,6 +1,6 @@
 AddCSLuaFile()
 
-ENT.PrintName = "Unmaker Level 1"
+ENT.PrintName = "Unmaker Level 3"
 ENT.Category = "DOOM 64"
 ENT.Spawnable = true
 ENT.AdminSpawnable = true
@@ -9,7 +9,7 @@ ENT.AdminOnly = false
 ENT.Type = "anim"
 ENT.Base = "d64_itembase"
 
-ENT.Weapon = "d64_laser"
+ENT.Weapon = "d64_laserlvl3"
 ENT.Sprite = "ent/w_weapons/LSRGA0.png"
 ENT.AmmoType = "AR2AltFire"
 ENT.Ammo = 80

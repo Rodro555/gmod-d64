@@ -1,6 +1,2 @@
 # gmod-d64
-
-TODO: 
-- Weapon Selection icons
-
-NOTE: GMOD does not read material files from local addon folder!!!
+A port of DOOM 64's weapons to Garry's Mod.

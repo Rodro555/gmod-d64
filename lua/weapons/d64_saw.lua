@@ -27,20 +27,13 @@ if CLIENT then
 	killicon.Add("d64_saw", "ent/w_weapons/csawa0", Color(255, 255, 255, 255))
 end
 
-function SWEP:Deploy()
-	self:SetNWBool("Deploy", true)
-end
-
 function SWEP:PrimaryAttack()
 	if (self:Ammo1() < self.TakeAmmo && self.Primary.Ammo != "none") or !self:GetNWBool("Deploy") then
 		return
 	end
 	self:Shoot()
 	self:SetNextPrimaryFire(CurTime() + self.Primary.Delay)
-	self:SetState(3)
-	timer.Simple(0.2, function()
-		self:SetState(1)
-	end)
+    self:SetState(3)
 end
 
 function SWEP:SetState(State)
@@ -65,7 +58,7 @@ function SWEP:SetState(State)
 		self:EmitSound("DOOM64_SAW3")
     elseif State == 4 then
         self:SetNWString("CurSprite", "v_spr/saw/SAWGD0.png")
-        self:SetNWInt("NextState", 3)
+        self:SetNWInt("NextState", 1)
         self:SetNWFloat("NextTime", CurTime() + 0.1)
 		self:EmitSound("DOOM64_SAW3")
     end 

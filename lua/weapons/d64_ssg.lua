@@ -47,10 +47,10 @@ function SWEP:SetState(State)
         self:SetNWFloat("NextTime", CurTime() + 1)
         
         timer.Simple(0.8, function()
-            sound.Play("DOOM64_SSG2", self.Owner:GetPos(), 75, 100, 1) 
+            self:EmitSound("DOOM64_SSG2")
         end)
         timer.Simple(1, function()
-            sound.Play("DOOM64_SSG3", self.Owner:GetPos(), 75, 100, 1) 
+            self:EmitSound("DOOM64_SSG3")
         end)
     end
 end

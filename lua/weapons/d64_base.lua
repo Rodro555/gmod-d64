@@ -157,7 +157,7 @@ function SWEP:DrawHUD()
 	surface.SetMaterial(CurMaterial)
 	surface.SetDrawColor(255, 255, 255, 255)
 	surface.DrawTexturedRect(ScrW() / 2 - CurMaterial:Width() * SpriteSize / 2 + math.cos(self.Bob) * self.BobSpeed, 
-		ScrH() - CurMaterial:Height() * SpriteSize + math.abs(math.sin(self.Bob)) * self.BobSpeed + (self.WeaponPos * ScrH() / 2), 
+		ScrH() - CurMaterial:Height() * SpriteSize * 0.95 + math.abs(math.sin(self.Bob)) * self.BobSpeed + (self.WeaponPos * ScrH() / 2), 
 		CurMaterial:Width() * SpriteSize, 
 		CurMaterial:Height() * SpriteSize)
 end
