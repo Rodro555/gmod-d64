@@ -36,6 +36,10 @@ function SWEP:SetState(State)
 end
 
 function SWEP:DrawHUD()
+	if (self.Owner:InVehicle()) then
+		return
+	end
+
 	local SpriteSize = ScrH() / 256
 
     if ((input.IsMouseDown(MOUSE_LEFT) or self:GetNextPrimaryFire() - CurTime() > 0) && (self:Ammo1() > 1 or self.Primary.Ammo == "none")) then
@@ -47,6 +51,9 @@ function SWEP:DrawHUD()
 	else
 		self:SetState(1)
 		self.BobSpeed = self.Owner:GetVelocity():Length2D() / self.Owner:GetRunSpeed() * ScrH() / 20
+		if self.Owner:GetVelocity():Length2D() >= self.Owner:GetRunSpeed() then
+			self.BobSpeed  = ScrH() / 20
+		end
 	end
 
 	local CurMaterial = Material(self:GetNWString("CurSprite"))

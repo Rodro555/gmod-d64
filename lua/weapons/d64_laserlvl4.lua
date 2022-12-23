@@ -4,7 +4,7 @@ SWEP.Spawnable = true
 SWEP.AdminSpawnable = true
 SWEP.AdminOnly = false
 
-SWEP.Base = "d64_laserlvl2"
+SWEP.Base = "d64_laserlvl3"
 SWEP.Slot = 4
 SWEP.SlotPos = 7
 

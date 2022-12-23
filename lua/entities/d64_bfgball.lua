@@ -6,11 +6,12 @@ ENT.Type = "anim"
 ENT.Base = "base_anim"
 ENT.RenderGroup = RENDERGROUP_BOTH
 
-local SpriteTimer = 0
 local IdleSprite = 0
 
 function ENT:Initialize()
-    self:SetNWString("CurSprite", "ent/bfgball/BFS1A0.png")
+    self:SetNWString("CurSprite", "ent/bfgball/bfs")
+    self:SetNWFloat("SpriteTimer", 0)
+    self:SetNWInt("IdleSprite", 0)
     if SERVER then
         self:SetModel("models/hunter/misc/sphere025x025.mdl")
         self:SetMoveType(MOVETYPE_VPHYSICS)
@@ -33,19 +34,7 @@ function ENT:Think()
 			self:Remove()
 		end
     end
- 
-    if CLIENT && CurTime() > SpriteTimer then
-        if (self:GetSolid() != SOLID_NONE) then
-            IdleSprite = not IdleSprite
-            if (IdleSprite) then
-                self:SetNWString("CurSprite", "ent/bfgball/BFS1B0.png")
-            else
-                self:SetNWString("CurSprite", "ent/bfgball/BFS1A0.png")
-            end
-            SpriteTimer = CurTime() + 0.05
-        end
-	end
-    self:NextThink(CurTime() + 0.01)
+    self:NextThink(CurTime())
 	return true
 end
 

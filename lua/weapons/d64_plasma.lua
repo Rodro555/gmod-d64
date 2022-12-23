@@ -35,6 +35,9 @@ function SWEP:Deploy()
 end
 
 function SWEP:Holster(Weapon)
+    if (!IsValid(Weapon)) then
+		return false
+	end
 	self:SetNWBool("Deploy", false)
 	if (!self.ShouldSwitch) then
 		self.ShouldSwitch = true
@@ -50,7 +53,6 @@ function SWEP:Holster(Weapon)
 	end
 end
 
-
 function SWEP:PrimaryAttack()
 	if (self:Ammo1() < self.TakeAmmo && self.Primary.Ammo != "none") or !self:GetNWBool("Deploy") then
 		return
@@ -62,13 +64,15 @@ function SWEP:PrimaryAttack()
     timer.Stop("SndMgr")
     self:EmitSound("DOOM64_PlasmaShoot")
     timer.Simple(0.5, function()
-        if (self.Owner:KeyDown(IN_ATTACK)) then
-            self:EmitSound("DOOM64_PlasmaShoot") 
-        else
-            self:EmitSound("DOOM64_PlasmaIdle")
-            timer.Start("SndMgr") 
+        if (self.Owner:IsValid()) then
+            if (self.Owner:KeyDown(IN_ATTACK)) then
+                self:EmitSound("DOOM64_PlasmaShoot") 
+            else
+                self:EmitSound("DOOM64_PlasmaIdle")
+                timer.Start("SndMgr") 
+            end 
         end
-    end)
+    end) 
 end
 
 function SWEP:Shoot()
