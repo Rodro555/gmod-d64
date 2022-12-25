@@ -136,6 +136,15 @@ function SWEP:Shoot()
 	self.Owner:SetAnimation(PLAYER_ATTACK1)
 end
 
+function SWEP:CalcView(ply, pos)
+	local speedModifier = self.Owner:GetVelocity():Length2D() / self.Owner:GetRunSpeed()
+	if self.Owner:GetVelocity():Length2D() >= self.Owner:GetRunSpeed() then
+		speedModifier = 1
+	end
+	pos = pos + Vector(0, 0, math.cos(self.Bob * 3) * speedModifier * 6)
+	return pos
+end
+
 function SWEP:DrawHUD()
 	if (self.Owner:InVehicle()) then
 		return
