@@ -109,7 +109,7 @@ function SWEP:SetState(State)
         if (!IsFirstTimePredicted() && !self.Owner:InVehicle()) then
             self:EmitSound("DOOM64_SAW3") 
         end
-        if (CurTime() > self:GetNextPrimaryFire()) then
+        if (CurTime() > self:GetNextPrimaryFire() + 0.1) then
             self:SetNWBool("Firing", false)
         end
     end

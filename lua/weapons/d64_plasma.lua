@@ -24,33 +24,35 @@ if CLIENT then
 	killicon.Add("d64_plasmaball", "ent/w_weapons/plsma0", Color(255, 255, 255, 255))
 end
 
-function SWEP:Deploy()
-	self:SetNWBool("Deploy", true)
-    self:EmitSound("DOOM64_PlasmaIdle")
-    timer.Create("SndMgr", 2, 0, function()
-        if (!self.Owner:InVehicle()) then
-            self:EmitSound("DOOM64_PlasmaIdle") 
-        end
-    end)
-end
+local PTick = 0
+local SoundTime = 0  
+function SWEP:Think()
+	if (CurTime() > self:GetNWFloat("NextTime")) then
+		self:SetState(self:GetNWInt("NextState"))
+	end
 
-function SWEP:Holster(Weapon)
-    if (!IsValid(Weapon)) then
-		return false
+	local Delta = CurTime() - PTick
+	if (self.Bob >= 2 * math.pi) then
+		self.Bob = 0
 	end
-	self:SetNWBool("Deploy", false)
-	if (!self.ShouldSwitch) then
-		self.ShouldSwitch = true
-		self.WeaponSwitch = Weapon
-		self:SetNWFloat("SwitchTime", CurTime() + 0.5)
+
+	self.Bob = math.Approach(self.Bob, 2 * math.pi, Delta * 3)
+	if self:GetNWBool("Deploy") then
+		self.WeaponPos = math.Approach(self.WeaponPos, 0, Delta * 3)
 	else
-		self.ShouldSwitch = false
-		self.WeaponSwitch = nil
-		self:SetNWFloat("SwitchTime", 0)
-        timer.Stop("SndMgr")
-        timer.Remove("SndMgr")
-		return true
+		self.WeaponPos = math.Approach(self.WeaponPos, 1, Delta * 3)
 	end
+
+	if (CurTime() > self:GetNWFloat("SwitchTime") && self:GetNWFloat("SwitchTime") != 0 && SERVER && IsValid(self.WeaponSwitch)) then
+		self.Owner:SelectWeapon(self.WeaponSwitch)
+	end
+	
+	if (CurTime() > SoundTime && CurTime() > self:GetNextPrimaryFire() && !self.Owner:InVehicle()) then
+		self:EmitSound("DOOM64_PlasmaIdle")
+		SoundTime = CurTime() + 0.5
+	end
+
+	PTick = CurTime()
 end
 
 function SWEP:PrimaryAttack()
@@ -60,19 +62,9 @@ function SWEP:PrimaryAttack()
 	self:Shoot()
 	self:SetNextPrimaryFire(CurTime() + self.Primary.Delay)
 	self:SetState(4)
-
-    timer.Stop("SndMgr")
-    self:EmitSound("DOOM64_PlasmaShoot")
-    timer.Simple(0.5, function()
-        if (self.Owner:IsValid()) then
-            if (self.Owner:KeyDown(IN_ATTACK)) then
-                self:EmitSound("DOOM64_PlasmaShoot") 
-            else
-                self:EmitSound("DOOM64_PlasmaIdle")
-                timer.Start("SndMgr") 
-            end 
-        end
-    end) 
+	if SERVER then
+		self:EmitSound("DOOM64_PlasmaShoot")
+	end
 end
 
 function SWEP:Shoot()

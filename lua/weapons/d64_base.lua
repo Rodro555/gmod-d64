@@ -83,7 +83,6 @@ function SWEP:Holster(Weapon)
 end
 
 local PTick = 0
-
 function SWEP:Think()
 	if (CurTime() > self:GetNWFloat("NextTime")) then
 		self:SetState(self:GetNWInt("NextState"))
