@@ -36,21 +36,24 @@ function SWEP:SetState(State)
     if State == 1 then
         self:SetNWString("CurSprite", "v_spr/ssg/SHT2A0.png")
         self:SetNWInt("NextState", 1)
-        self:SetNWFloat("NextTime", CurTime() + 0.3)
+        self:SetNWFloat("NextTime", CurTime() + 0.1)
     elseif State == 2 then
-        self:SetNWString("CurSprite", "v_spr/ssg/SHT2B0.png")
+        self:SetNWString("CurSprite", "v_spr/ssg/SHT2A02.png")
         self:SetNWInt("NextState", 3)
-        self:SetNWFloat("NextTime", CurTime() + 0.4) 
-    elseif State == 3 then
-        self:SetNWString("CurSprite", "v_spr/ssg/SHT2C0.png")
-        self:SetNWInt("NextState", 1)
-        self:SetNWFloat("NextTime", CurTime() + 1)
-        
-        timer.Simple(0.8, function()
+        self:SetNWFloat("NextTime", CurTime() + 0.2) 
+        timer.Simple(1, function()
             self:EmitSound("DOOM64_SSG2")
         end)
-        timer.Simple(1, function()
+        timer.Simple(1.2, function()
             self:EmitSound("DOOM64_SSG3")
         end)
+    elseif State == 3 then
+        self:SetNWString("CurSprite", "v_spr/ssg/SHT2B02.png")
+        self:SetNWInt("NextState", 4)
+        self:SetNWFloat("NextTime", CurTime() + 1)
+    elseif State == 4 then
+        self:SetNWString("CurSprite", "v_spr/ssg/SHT2C0.png")
+        self:SetNWInt("NextState", 1)
+        self:SetNWFloat("NextTime", CurTime() + 0.1)
     end
 end

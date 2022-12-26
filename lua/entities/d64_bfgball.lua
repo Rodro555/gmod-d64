@@ -88,7 +88,7 @@ end
 function ENT:PhysicsCollide()
     self:SetMoveType(MOVETYPE_NONE)
 	self:SetSolid(SOLID_NONE)
-    self:EmitSound("DOOM64_RocketHit")
+    self:EmitSound("DOOM64_BFGHit")
     self:SetNWString("CurSprite", "ent/bfgball/BFS1C0.png")
     timer.Simple(0.1, function()
         self:SetNWString("CurSprite", "ent/bfgball/BFS1D0.png")

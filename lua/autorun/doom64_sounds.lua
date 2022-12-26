@@ -143,3 +143,11 @@ sound.Add(
 	level = 100,
 	sound = "ent/SFX_122.wav"
 })
+
+sound.Add(
+{
+	name = "DOOM64_BFGHit",
+	channel = CHAN_WEAPON,
+	level = 100,
+	sound = "bfg/sfx_043.wav"
+})

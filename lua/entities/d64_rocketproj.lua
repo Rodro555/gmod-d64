@@ -28,8 +28,11 @@ function ENT:Think()
 		if self:WaterLevel() > 0 then
 			self:Remove()
 		end
+
+        EffectData():SetOrigin(self:GetPos())
+		util.Effect("doom64_rocketrail", EffectData())
+        self:NextThink(CurTime() + 0.08)
 	end
-	self:NextThink(0.01)
 	return true
 end
 
