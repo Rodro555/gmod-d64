@@ -10,6 +10,6 @@ ENT.Type = "anim"
 ENT.Base = "d64_itembase"
 
 ENT.Weapon = "d64_pistol"
-ENT.Sprite = "ent/w_weapons/PISTOL.png"
+ENT.Sprite = "ent/w_weapons/pisga0.png"
 ENT.AmmoType = "Pistol"
 ENT.Ammo = 50

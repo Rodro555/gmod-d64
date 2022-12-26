@@ -1,4 +1,4 @@
-SWEP.PrintName = "Plama Rifle"
+SWEP.PrintName = "Plasma Rifle"
 SWEP.Category = "DOOM 64"
 SWEP.Spawnable = true
 SWEP.AdminSpawnable = true
@@ -24,8 +24,33 @@ if CLIENT then
 	killicon.Add("d64_plasmaball", "ent/w_weapons/plsma0", Color(255, 255, 255, 255))
 end
 
-local PTick = 0
 local SoundTime = 0  
+function SWEP:Deploy()
+	self:SetNWBool("Deploy", true)
+	SoundTime = 0
+end
+
+function SWEP:Holster(Weapon)
+	if (!IsValid(Weapon)) then
+		return false
+	end
+	self:SetNWBool("Deploy", false)
+	if (!self.ShouldSwitch) then
+		self.ShouldSwitch = true
+		self.WeaponSwitch = Weapon
+		self:SetNWFloat("SwitchTime", CurTime() + 0.5)
+	else
+		self.ShouldSwitch = false
+		self.WeaponSwitch = nil
+		self:SetNWFloat("SwitchTime", 0)
+		SoundTime = CurTime() + 1000
+		self:StopSound("DOOM64_PlasmaIdle")
+		self:StopSound("DOOM64_PlasmaShoot")
+		return true
+	end
+end
+
+local PTick = 0
 function SWEP:Think()
 	if (CurTime() > self:GetNWFloat("NextTime")) then
 		self:SetState(self:GetNWInt("NextState"))
