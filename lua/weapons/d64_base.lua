@@ -33,7 +33,6 @@ SWEP.Primary.Delay = 0
 SWEP.BulletDistance = 2048
 
 SWEP.Secondary.ClipSize = -1
-SWEP.Primary.DefaultClip = 0
 SWEP.Secondary.DefaultClip = -1
 SWEP.Secondary.Automatic = true
 SWEP.Secondary.Ammo = "none"
@@ -116,6 +115,9 @@ function SWEP:PrimaryAttack()
 	self:EmitSound(self.Primary.Sound)
 	self:SetNextPrimaryFire(CurTime() + self.Primary.Delay)
 	self:SetState(2)
+end
+
+function SWEP:SecondaryAttack()
 end
 
 function SWEP:Shoot()
