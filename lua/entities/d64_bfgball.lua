@@ -12,6 +12,7 @@ function ENT:Initialize()
     self:SetNWString("CurSprite", "ent/bfgball/bfs")
     self:SetNWFloat("SpriteTimer", 0)
     self:SetNWInt("IdleSprite", 0)
+    self:SetNWBool( "stateless", false )
     if SERVER then
         self:SetModel("models/hunter/misc/sphere025x025.mdl")
         self:SetMoveType(MOVETYPE_VPHYSICS)
@@ -26,7 +27,7 @@ end
 
 function ENT:Think()
 	if SERVER then
-		if IsValid(self:GetPhysicsObject()) then
+		if IsValid(self:GetPhysicsObject()) and self:GetNWBool( "stateless") == false then
 			self:GetPhysicsObject():SetVelocity(self:GetForward() * 1500)
 		end
 
@@ -86,8 +87,11 @@ function ENT:FireTracers()
 end
 
 function ENT:PhysicsCollide()
-    self:SetMoveType(MOVETYPE_NONE)
-	self:SetSolid(SOLID_NONE)
+    self:GetPhysicsObject():SetVelocity(self:GetForward())
+    if self:GetNWBool( "stateless") == true then return end
+    self:SetNWBool( "stateless", true )
+    --self:SetMoveType(MOVETYPE_NONE)
+    --self:SetSolid(SOLID_NONE)
     self:EmitSound("DOOM64_BFGHit")
     self:SetNWString("CurSprite", "ent/bfgball/BFS1C0.png")
     timer.Simple(0.1, function()

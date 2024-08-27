@@ -27,6 +27,7 @@ if CLIENT then
 end
 
 function SWEP:Shoot()
+    if not SERVER then return end
     timer.Simple(1, function()
         local ent = ents.Create("d64_bfgball")
         ent:SetOwner(self.Owner)

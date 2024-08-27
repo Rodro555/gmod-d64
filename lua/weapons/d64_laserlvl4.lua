@@ -10,6 +10,7 @@ SWEP.SlotPos = 7
 
 local LaserOffset = 0
 function SWEP:Shoot()
+    if not SERVER then return end
     LaserOffset = LaserOffset + 1
     if (LaserOffset > 4) then
         LaserOffset = 1

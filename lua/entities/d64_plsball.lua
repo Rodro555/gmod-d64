@@ -7,6 +7,7 @@ ENT.Base = "base_anim"
 ENT.RenderGroup = RENDERGROUP_BOTH
 
 function ENT:Initialize()
+    self:SetNWBool( "stateless", false )
     self:SetNWString("CurSprite", "ent/plsball/PLSSA0.png")
     if SERVER then
         self:SetModel("models/hunter/misc/sphere025x025.mdl")
@@ -22,7 +23,7 @@ end
 
 function ENT:Think()
 	if SERVER then
-		if IsValid(self:GetPhysicsObject()) then
+		if IsValid(self:GetPhysicsObject()) and self:GetNWBool( "stateless") == false then
 			self:GetPhysicsObject():SetVelocity(self:GetForward() * 2000)
 		end
 		if self:WaterLevel() > 0 then
@@ -40,8 +41,11 @@ function ENT:Draw()
 end
 
 function ENT:PhysicsCollide()
-    self:SetMoveType(MOVETYPE_NONE)
-	self:SetSolid(SOLID_NONE)
+    self:GetPhysicsObject():SetVelocity(self:GetForward())
+    if self:GetNWBool( "stateless") == true then return end
+    self:SetNWBool( "stateless", true )
+    --self:SetMoveType(MOVETYPE_NONE)
+	--self:SetSolid(SOLID_NONE)
     self:EmitSound("DOOM64_RocketHit")
     self:SetNWString("CurSprite", "ent/plsball/PLSSC0.png")
     timer.Simple(0.1, function()
@@ -76,5 +80,12 @@ function ENT:Touch(entity)
 		self:PhysicsCollide()
 	end
 end
+
+--[[
+self:SetNWBool( "stateless", false )
+    self:GetPhysicsObject():SetVelocity(self:GetForward())
+    if self:GetNWBool( "stateless") == true then return end
+    self:SetNWBool( "stateless", true )
+]]
 
 scripted_ents.Register(ENT, "d64_plasmaball")

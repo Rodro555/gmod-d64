@@ -9,6 +9,7 @@ SWEP.Slot = 4
 SWEP.SlotPos = 6
 
 function SWEP:Shoot()
+    if not SERVER then return end
     for i = -1, 1, 2 do 
         local ent = ents.Create("d64_unmakerlsr")
         ent:SetOwner(self.Owner)

@@ -8,6 +8,7 @@ ENT.RenderGroup = RENDERGROUP_BOTH
 
 function ENT:Initialize()
     self:SetNWString("CurSprite", "ent/rocket/MISLA5.png")
+    self:SetNWBool( "stateless", false )
     if SERVER then
         self:SetModel("models/hunter/misc/sphere025x025.mdl")
         self:SetMoveType(MOVETYPE_VPHYSICS)
@@ -22,7 +23,7 @@ end
 
 function ENT:Think()
 	if SERVER then
-		if IsValid(self:GetPhysicsObject()) then
+		if IsValid(self:GetPhysicsObject()) and self:GetNWBool( "stateless") == false then
 			self:GetPhysicsObject():SetVelocity(self:GetForward() * 2000)
 		end
 		if self:WaterLevel() > 0 then
@@ -30,7 +31,7 @@ function ENT:Think()
 		end
 
         EffectData():SetOrigin(self:GetPos())
-		util.Effect("doom64_rocketrail", EffectData())
+		if self:GetNWBool( "stateless") == false then util.Effect("doom64_rocketrail", EffectData()) end
         self:NextThink(CurTime() + 0.08)
 	end
 	return true
@@ -43,8 +44,11 @@ function ENT:Draw()
 end
 
 function ENT:PhysicsCollide()
-    self:SetMoveType(MOVETYPE_NONE)
-	self:SetSolid(SOLID_NONE)
+    self:GetPhysicsObject():SetVelocity(Vector(0,0,0))
+    if self:GetNWBool( "stateless") == true then return end
+    self:SetNWBool( "stateless", true )
+    --self:SetMoveType(MOVETYPE_NONE)
+	--self:SetSolid(SOLID_NONE)
 	util.BlastDamage(self, self.Owner, self:GetPos(), 128, 128)
     self:EmitSound("DOOM64_RocketHit")
     self:SetNWString("CurSprite", "ent/rocket/MISLB0.png")

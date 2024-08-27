@@ -93,6 +93,7 @@ function SWEP:PrimaryAttack()
 end
 
 function SWEP:Shoot()
+	if not SERVER then return end
 	local ent = ents.Create("d64_plasmaball")
 	ent:SetOwner(self.Owner)
 	ent:SetPos(self.Owner:GetShootPos() - self.Owner:EyeAngles():Up() * 8)
